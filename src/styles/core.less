@@ -1,0 +1,104 @@
+@OrangePrimaryColor: #F7522E;
+@GreenPrimaryColor: #006371;
+@WhiteColor: #FFFFFF;
+@YellowAccentColor: #FFC52F;
+@BlackColor: #1E2024;
+@GreyColor: #F3F3F3;
+
+@min1400: ~"(min-width: 1400px)";
+@min1200: ~"(min-width: 1200px)";
+@min990: ~"(min-width: 990px)";
+@min760: ~"(min-width: 760px)";
+@min580: ~"(min-width: 580px)";
+
+@max760: ~"(max-width: 760px)";
+
+.text {
+  font-family: Montserrat;
+
+  &_normal {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 32px;
+
+    @media @min760 {
+      font-size: 54px;
+      line-height: 72px;
+    }
+  }
+
+  &_medium {
+    font-size: 11px;
+    line-height: 20px;
+    font-style: normal;
+    font-weight: 500;
+
+    @media @min760 {
+      font-size: 20px;
+      line-height: 32px;
+    }
+  }
+
+  &_h1 {
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px;
+    font-size: 36px;
+
+    @media @min760 {
+      font-size: 60px;
+      line-height: 72px;
+    }
+  }
+
+  &_semibold {
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+    font-size: 20px;
+
+    @media @min760 {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+  &_bold {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+
+    @media @min760 {
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+
+  &_small {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+  }
+
+  &_semibold-normal {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 32px;
+
+    @media @min760 {
+      font-size: 30px;
+      line-height: 32px;
+    }
+  }
+
+  &_medium-14-mob {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+  }
+}
