@@ -7,6 +7,5 @@ import HomePage from "./components/HomePage.vue";
 </template>
 
 <style scoped>
-@import "style.less";
 
 </style>

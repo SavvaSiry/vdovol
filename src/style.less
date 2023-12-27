@@ -5,6 +5,7 @@
 @BlackColor: #1E2024;
 @GreyColor: #F3F3F3;
 
+@min1900: ~"(min-width: 1900px)";
 @min1400: ~"(min-width: 1400px)";
 @min1200: ~"(min-width: 1200px)";
 @min990: ~"(min-width: 990px)";
@@ -15,6 +16,7 @@
 
 .text {
   font-family: Montserrat;
+  color: @BlackColor;
 
   &_normal {
     font-style: normal;
@@ -52,7 +54,7 @@
     }
   }
 
-  &_semibold {
+  &_semi-bold {
     font-style: normal;
     font-weight: 600;
     line-height: 32px;
@@ -101,6 +103,10 @@
     font-weight: 600;
     line-height: 24px;
   }
+
+  &_white {
+    color: @WhiteColor;
+  }
 }
 
 .wrapper {
@@ -108,14 +114,58 @@
   margin: 0 auto;
 
   &_paddings {
-    padding: 0 16px;
+    padding: 0 8px;
 
     @media @min990 {
-      padding: 0 20px;
+      padding: 0 16px;
     }
 
     @media @min1200 {
       padding: 0;
     }
   }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+
+  &_gap8 {
+    gap: 8px;
+  }
+
+  &_gap20 {
+    gap: 20px;
+  }
+
+  &_gap40 {
+    gap: 40px;
+  }
+}
+
+.row {
+  display: flex;
+
+  &_gap8 {
+    gap: 8px;
+  }
+
+  &_gap20 {
+    gap: 20px;
+  }
+
+  &_gap40 {
+    gap: 40px;
+  }
+}
+
+body {
+  line-height: 1;
+}
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, main, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
 }
