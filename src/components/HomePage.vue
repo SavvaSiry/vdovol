@@ -51,6 +51,13 @@
           </div>
         </div>
       </div>
+
+      <button class="button menu__button button_default">
+        <div class="text text_bold text_white">Смотреть полностью</div>
+        <svg width="28" height="17" viewBox="0 0 28 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 8.5H26M26 8.5L19.2 15.5M26 8.5L19.2 1.5" stroke="white" stroke-width="2"/>
+        </svg>
+      </button>
     </div>
 
     <LineBanner
@@ -199,14 +206,27 @@ export default {
   }
 }
 
+.menu__button {
+  margin: 40px auto 0;
+
+  @media @min760 {
+    margin-top: 60px;
+  }
+}
+
 .menu__list {
   max-width: 1240px;
   margin: 40px auto 60px;
 
-  gap: 40px;
+  gap: 60px;
+  display: flex;
+  overflow-x: scroll;
 
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  @media @min1400 {
+    gap: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
 
 .menu__card {
@@ -224,7 +244,8 @@ export default {
   justify-content: center;
   overflow: hidden;
 
-  width: 100%;
+  width: 280px;
+  height: 280px;
   flex: 1;
   border-radius: 10px;
 }
