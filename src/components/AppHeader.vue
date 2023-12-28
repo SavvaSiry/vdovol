@@ -1,7 +1,5 @@
 <template>
   <header>
-
-
     <div class="header">
 
       <div class="header__container">

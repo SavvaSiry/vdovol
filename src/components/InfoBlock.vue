@@ -39,10 +39,24 @@
           <div class="text text_bold">Кулинария</div>
         </button>
       </div>
+
+      <div class="info-block__sail">
+        <svg class="info-block__sail__svg"  width="230" height="233" viewBox="0 0 230 233" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+              d="M172.543 16.7921L174.465 51.8605L174.491 52.3427L174.974 52.333L210.088 51.6291L196.604 84.0585L196.419 84.5044L196.858 84.7052L228.8 99.3064L202.581 122.674L202.22 122.995L202.529 123.367L224.972 150.381L191.211 160.058L190.747 160.191L190.864 160.66L199.363 194.737L164.747 188.807L164.271 188.726L164.173 189.199L157.045 223.589L128.429 203.227L128.036 202.947L127.742 203.33L106.4 231.222L89.4523 200.461L89.2192 200.038L88.7884 200.256L57.4573 216.126L55.5352 181.057L55.5088 180.575L55.0259 180.585L19.912 181.289L33.3958 148.859L33.5812 148.413L33.142 148.213L1.20005 133.612L27.4191 110.244L27.7797 109.923L27.4711 109.551L5.02756 82.5369L38.7889 72.8596L39.2532 72.7265L39.1363 72.2579L30.6364 38.181L65.2533 44.1106L65.7293 44.1921L65.8273 43.7192L72.9546 9.32903L101.571 29.691L101.964 29.971L102.257 29.5875L123.6 1.69542L140.548 32.4569L140.781 32.8799L141.212 32.6617L172.543 16.7921Z"
+              fill="#FFC42D" stroke="#FFC52F"/>
+        </svg>
+        <div class="text text_bold">кэшбэк до</div>
+        <div class="text text_h1">5%</div>
+      </div>
+
     </div>
+
     <div class="info-block__img-container">
       <img class="info-block__img" src="../assets/info-block.png">
     </div>
+
+
   </div>
 </template>
 
@@ -81,7 +95,46 @@ export default {
 }
 
 .info-block__content {
+  position: relative;
   width: fit-content;
+}
+
+.info-block__sail {
+  position: absolute;
+  z-index: 10;
+  display: none;
+
+  transform: rotate(30deg);
+
+  @media @min580 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    top: -65px;
+    right: -120px;
+  }
+
+  @media @min760 {
+    top: 150px;
+    right: -100px;
+  }
+
+  @media @min1200 {
+    top: -60px;
+    right: -200px;
+  }
+}
+
+.info-block__sail__svg {
+  width: 175px;
+  position: absolute;
+  z-index: -1;
+
+  @media @min760 {
+    width: 230px;
+  }
 }
 
 .info-block__content__text {
@@ -97,6 +150,7 @@ export default {
 }
 
 .info-block__img-container {
+  position: relative;
   box-sizing: border-box;
 
   align-items: center;

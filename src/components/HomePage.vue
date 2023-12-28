@@ -271,6 +271,7 @@ export default {
     gap: 40px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    overflow-x: initial;
   }
 }
 
