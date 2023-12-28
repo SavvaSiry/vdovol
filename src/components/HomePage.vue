@@ -67,7 +67,7 @@
 
       <div class="loyalty-block__wrapper">
         <h2 class="text text_normal text_white">Система лояльности</h2>
-        <h3 class="text text_medium text_white">Акции и специальные условия для постоянных посетителей</h3>
+        <h3 class="text text_medium text_white text_center">Акции и специальные условия для <br> постоянных посетителей</h3>
 
         <div class="loyalty-list loyalty-list_margin">
 
@@ -339,6 +339,9 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  box-sizing: border-box;
+  padding: 0 20px;
 
   height: 100%;
 }
