@@ -114,6 +114,7 @@
   }
 }
 
+/* Containers */
 .wrapper {
   max-width: 1200px;
   margin: 0 auto;
@@ -163,6 +164,25 @@
     gap: 40px;
   }
 }
+
+/* Buttons */
+
+.button {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &_default {
+    border-radius: 8px;
+    background: @OrangePrimaryColor;
+    color: @WhiteColor;
+    gap: 12px;
+    padding: 12px 24px;
+  }
+}
+
+/* Default tags */
 
 body {
   line-height: 1;

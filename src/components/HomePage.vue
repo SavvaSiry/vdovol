@@ -63,18 +63,24 @@
         <h2 class="text text_normal text_white">Система лояльности</h2>
         <h3 class="text text_medium text_white">Акции и специальные условия для постоянных посетителей</h3>
 
-        <div class="loyalty-list">
+        <div class="loyalty-list loyalty-list_margin">
 
           <div v-for="i in 4" :key="i" class="loyalty-card">
             <div class="text text_semi-bold">Кэшбек до 5%</div>
             <div class="text text_medium">При участии в нашей системе лояльсности</div>
-            <div></div>
           </div>
         </div>
+
+        <button class="button loyalty-block__button button_default">
+          <div class="text text_bold text_white">Зарегестрироваться</div>
+          <svg width="28" height="17" viewBox="0 0 28 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 8.5H26M26 8.5L19.2 15.5M26 8.5L19.2 1.5" stroke="white" stroke-width="2"/>
+          </svg>
+        </button>
+
       </div>
 
       <div class="loyalty-block__back"/>
-
       <div class="loyalty-block__img-container">
         <img class="loyalty-block__img" src="../assets/info-block.png" alt="Info">
       </div>
@@ -241,7 +247,7 @@ export default {
   position: relative;
 
   width: 100%;
-  height: 720px;
+  height: 900px;
 
   overflow: hidden;
 
@@ -251,6 +257,14 @@ export default {
 
   @media @min1200 {
     height: 920px;
+  }
+}
+
+.loyalty-block__button {
+  margin-top: 32px;
+
+  @media @min760 {
+    margin-top: 50px;
   }
 }
 
@@ -268,24 +282,36 @@ export default {
   grid-template-columns: 1fr;
   gap: 22px;
 
+  &_margin {
+    margin-top: 40px;
+  }
+
   @media @min1200 {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 .loyalty-card {
-  width: 550px;
+  width: 314px;
+  height: auto;
 
   box-sizing: border-box;
-  padding: 25px;
+  padding: 12px;
 
   display: flex;
   flex-direction: column;
-  gap: 13px;
+  gap: 8px;
   justify-content: space-between;
 
   background: @WhiteColor;
   border-radius: 10px;
+
+  @media @min760 {
+    width: 550px;
+    height: auto;
+    padding: 25px;
+    gap: 14px;
+  }
 }
 
 .loyalty-block__img-container {
