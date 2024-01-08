@@ -323,7 +323,7 @@ export default {
   }
 
   @media @min1200 {
-    height: 920px;
+    height: 850px;
   }
 }
 
@@ -427,7 +427,7 @@ export default {
   padding: 0 20px;
   height: auto;
   width: 100%;
-  margin: 100px auto;
+  margin: 55px auto;
   max-width: 1280px;
 }
 

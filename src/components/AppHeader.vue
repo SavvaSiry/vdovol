@@ -41,15 +41,24 @@ export default {
   box-sizing: border-box;
   padding: 16px 20px;
 
-  @media @min1200 {
-    margin: 0 100px;
-  }
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   background: @WhiteColor;
+
+  @media @min580 {
+    height: 100px;
+  }
+
+  @media @min760 {
+    padding: 0 20px;
+  }
+
+  @media @min1200 {
+    margin: 0 100px;
+    padding: 0;
+  }
 }
 
 .header__container {
