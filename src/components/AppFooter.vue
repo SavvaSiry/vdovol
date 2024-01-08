@@ -4,10 +4,10 @@
       <img class="footer__img" src="../assets/logo.png" alt="">
 
       <div class="row footer__nav row_gap40">
-        <div class="text text_bold text_white">Главная</div>
-        <div class="text text_bold text_white">Блюда</div>
-        <div class="text text_bold text_white">Система лояльности</div>
-        <div class="text text_bold text_white">Адреса</div>
+        <div class="text text_bold text_white" @click="this.$emit('scroll-to', 'main')">Главная</div>
+        <div class="text text_bold text_white" @click="this.$emit('scroll-to', 'menu')">Блюда</div>
+        <div class="text text_bold text_white" @click="this.$emit('scroll-to', 'loyalty')">Система лояльности</div>
+        <div class="text text_bold text_white" @click="this.$emit('scroll-to', 'contacts')">Адреса</div>
       </div>
 
       <div class="row row_gap8">
