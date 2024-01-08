@@ -73,51 +73,9 @@
         :text="'СКИДКА 30%'"
     />
 
-    <div class="contacts">
-      <div class="column row_gap8">
-        <div class="text text_normal">Как нас найти</div>
-        <div class="text text_medium">Акции и специальные условия для постоянных посетителей</div>
-      </div>
+    <CardBlock
 
-      <div class="contacts__buttons">
-        <div v-for="i in 3" :key="i" class="button button_default">
-          <div class="text text_bold text_white">Варшавская улица, 46</div>
-          <svg width="28" height="17" viewBox="0 0 28 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 8.5H26M26 8.5L19.2 15.5M26 8.5L19.2 1.5" stroke="white" stroke-width="2"/>
-          </svg>
-        </div>
-        <div class="button button_grey">
-          <div class="text text_bold">Варшавская улица, 46</div>
-          <svg width="28" height="17" viewBox="0 0 28 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 8.5H26M26 8.5L19.2 15.5M26 8.5L19.2 1.5" stroke="black" stroke-width="2"/>
-          </svg>
-        </div>
-      </div>
-
-      <div class="contacts__info">
-        <div class="contacts__info__map">
-          <img src="../assets/map.png" class="contacts__info__map__img">
-        </div>
-
-        <div class="contacts__info__content">
-          <img src="../assets/info-block.png" class="contacts__info__content__img"/>
-          <div class="text text_bold">Краснопутиловская, 111</div>
-          <div class="column column_gap8">
-            <div class="text text_medium">Пн-Пт 8:00-23:00</div>
-            <div class="text text_medium">Сб-Вс 9:00-22:00</div>
-            <div class="text text_medium">+ 7 (921) 483 38 83</div>
-          </div>
-
-          <div class="button button_default">
-            <div class="text text_bold text_white">Проложить маршрут</div>
-          </div>
-
-          <div class="text text_bold">+ 7 (921) 483 38 83</div>
-        </div>
-
-      </div>
-
-    </div>
+    />
 
 
   </main>
@@ -132,10 +90,11 @@ import {WidthHeightMixin} from "../mixins/WidthHeightMixin.js";
 import LineBanner from "./LineBanner.vue";
 import InfoBlock from "./InfoBlock.vue";
 import LineBlockScroll from "./LineBlockScroll.vue";
+import CardBlock from "./CardBlock.vue";
 
 export default {
   name: "HomePage",
-  components: {LineBlockScroll, InfoBlock, LineBanner, AppFooter, AppHeader},
+  components: {CardBlock, LineBlockScroll, InfoBlock, LineBanner, AppFooter, AppHeader},
   mixins: [WidthHeightMixin]
 }
 </script>
@@ -325,89 +284,6 @@ export default {
   height: 100%;
 
   background: rgba(0, 0, 0, 0.5);
-}
-
-.contacts {
-  box-sizing: border-box;
-  padding: 0 20px;
-  height: auto;
-  width: 100%;
-  margin: 55px auto;
-  max-width: 1280px;
-}
-
-.contacts__buttons {
-  margin-top: 32px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-}
-
-.contacts__info {
-  width: 100%;
-  height: auto;
-
-  margin-top: 40px;
-
-  display: flex;
-  border-radius: 12px;
-  overflow: hidden;
-  flex-direction: column;
-
-  @media @min580 {
-    flex-direction: row;
-    height: 400px;
-  }
-
-  @media @min760 {
-    height: 600px;
-  }
-}
-
-.contacts__info__map {
-  width: 100%;
-  overflow: hidden;
-  height: 450px;
-
-  @media @min580 {
-    height: auto;
-  }
-}
-
-.contacts__info__map__img {
-  width: auto;
-  height: 100%;
-
-  @media @min1200 {
-    width: 100%;
-    height: auto;
-  }
-}
-
-.contacts__info__content {
-  box-sizing: border-box;
-  padding: 20px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-
-  background: @GreyColor;
-
-  @media @min580 {
-    min-width: 320px;
-  }
-}
-
-.contacts__info__content__img {
-  width: 100%;
-  height: auto;
-
-  max-width: 315px;
-
-  overflow: hidden;
-  border-radius: 10px;
 }
 
 </style>
