@@ -17,7 +17,8 @@
         >
           {{ item.address }}
         </div>
-        <svg v-if="selectedCard !== item" width="28" height="17" viewBox="0 0 28 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg v-if="selectedCard !== item" width="28" height="17" viewBox="0 0 28 17" fill="none"
+             xmlns="http://www.w3.org/2000/svg">
           <path d="M0 8.5H26M26 8.5L19.2 15.5M26 8.5L19.2 1.5" stroke="white" stroke-width="2"/>
         </svg>
         <svg v-else width="28" height="17" viewBox="0 0 28 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,11 +29,15 @@
 
     <div class="contacts__info">
       <div class="contacts__info__map">
-        <img src="../assets/map.png" class="contacts__info__map__img">
+
+        <div id="map" style="width: 100%; height: 100%"></div>
+
       </div>
 
       <div class="contacts__info__content">
+
         <img src="../assets/info-block.png" class="contacts__info__content__img"/>
+
         <div class="text text_bold">{{ selectedCard.address }}</div>
         <div class="column column_gap8">
           <div class="text text_medium">{{ selectedCard.weekDays }}</div>
@@ -52,6 +57,9 @@
 </template>
 
 <script>
+
+import {YandexMapDefaultMarker} from "vue-yandex-maps";
+
 export default {
   name: "CardBlock",
   data() {
@@ -75,8 +83,46 @@ export default {
       ]
     }
   },
-  mounted() {
-    this.selectedCard = this.cards[0]
+  methods() {
+
+  },
+  async mounted() {
+    this.selectedCard = this.cards[0];
+
+    initMap();
+
+    async function initMap() {
+      await ymaps3.ready;
+      const {
+        YMap,
+        YMapDefaultSchemeLayer,
+        YMapDefaultFeaturesLayer,
+      } = ymaps3;
+
+      const {YMapDefaultMarker} = await ymaps3.import('@yandex/ymaps3-markers@0.0.1');
+
+      const map = new YMap(
+          document.getElementById('map'),
+          {
+            location: {
+              center: [37.588144, 55.733842],
+              zoom: 10
+            }
+          }
+      );
+
+      const INC_POINT = {
+        coordinates: [37.738521, 55.684758],
+        color: '#ff0000',
+        title: '<strong>Допустим это тут<strong>',
+      };
+
+      map.addChild(new YMapDefaultSchemeLayer());
+      map.addChild(new YMapDefaultFeaturesLayer());
+
+      const marker = new YMapDefaultMarker(INC_POINT);
+      map.addChild(marker);
+    }
   }
 }
 </script>
