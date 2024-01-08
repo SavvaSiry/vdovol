@@ -5,17 +5,17 @@
       <div class="header__container">
         <img class="header__logo" src="../assets/logo.png" alt="Logo">
         <div v-if="isWidth580()" class="text header__nav text_bold">
-          <div class="header__nav__item">Меню</div>
-          <div class="header__nav__item">Акции</div>
-          <div class="header__nav__item">Как нас найти</div>
+          <div class="header__nav__item" @click="this.$emit('scroll-to', 'menu')">Меню</div>
+          <div class="header__nav__item" @click="this.$emit('scroll-to', 'loyalty')">Акции</div>
+          <div class="header__nav__item" @click="this.$emit('scroll-to', 'contacts')">Как нас найти</div>
         </div>
         <div class="text header__phone text_bold">+ 7 (921) 483 38 83</div>
       </div>
 
       <div v-if="!isWidth580()" class="text header__nav text_bold">
-        <div class="header__nav__item">Меню</div>
-        <div class="header__nav__item">Акции</div>
-        <div class="header__nav__item">Как нас найти</div>
+        <div class="header__nav__item" @click="this.$emit('scroll-to', 'menu')">Меню</div>
+        <div class="header__nav__item" @click="this.$emit('scroll-to', 'loyalty')">Акции</div>
+        <div class="header__nav__item" @click="this.$emit('scroll-to', 'contacts')">Как нас найти</div>
       </div>
     </div>
 
@@ -27,7 +27,7 @@ import {WidthHeightMixin} from "../mixins/WidthHeightMixin.js";
 
 export default {
   name: "AppHeader",
-  mixins: [WidthHeightMixin]
+  mixins: [WidthHeightMixin],
 }
 </script>
 

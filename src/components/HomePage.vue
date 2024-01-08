@@ -1,5 +1,7 @@
 <template>
-  <AppHeader/>
+  <AppHeader
+      @scroll-to="scrollTo"
+  />
 
   <main>
     <LineBanner
@@ -10,7 +12,7 @@
 
     <LineBlockScroll/>
 
-    <div class="menu">
+    <div class="menu" ref="menu">
       <div class="text text_normal">Меню</div>
       <div class="text text_medium">По домашнему, как вы любите</div>
       <div class="menu__list">
@@ -39,7 +41,7 @@
         :text="'СКИДКА 30%'"
     />
 
-    <div class="loyalty-block">
+    <div class="loyalty-block" ref="loyalty">
 
       <div class="loyalty-block__wrapper">
         <h2 class="text text_normal text_white">Система лояльности</h2>
@@ -73,9 +75,11 @@
         :text="'СКИДКА 30%'"
     />
 
-    <CardBlock
+    <div ref="contacts">
+      <CardBlock
 
-    />
+      />
+    </div>
 
 
   </main>
@@ -95,7 +99,14 @@ import CardBlock from "./CardBlock.vue";
 export default {
   name: "HomePage",
   components: {CardBlock, LineBlockScroll, InfoBlock, LineBanner, AppFooter, AppHeader},
-  mixins: [WidthHeightMixin]
+  mixins: [WidthHeightMixin],
+  methods: {
+    scrollTo(hook) {
+      this.$refs[hook].scrollIntoView({
+        behavior: 'smooth'
+      })
+    }
+  }
 }
 </script>
 
