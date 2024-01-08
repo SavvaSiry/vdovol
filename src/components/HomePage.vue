@@ -8,31 +8,7 @@
 
     <InfoBlock/>
 
-    <div class="address-block">
-      <h2 class="text text_normal">Адрес наших точек</h2>
-
-      <div class="address-block__content">
-
-        <div v-for="i in 3" :key="i" class="address__card">
-          <img class="address__card__img" src="../assets/info-block.png" alt="Cafe">
-
-          <div class="address__card__info">
-            <div class="row address__card__info__row row_gap8">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M13 20.9998H12H10.9997L6.49985 16.5C3.46229 13.4624 3.46229 8.53754 6.49985 5.49998C9.53742 2.46241 14.4623 2.46241 17.4999 5.49998C20.5374 8.53754 20.5374 13.4624 17.4999 16.5L13 20.9998ZM12 13C13.1046 13 14 12.1046 14 11C14 9.89543 13.1046 9 12 9C10.8954 9 10 9.89543 10 11C10 12.1046 10.8954 13 12 13Z"
-                      fill="white"/>
-              </svg>
-              <div class="text text_semi-bold text_white">Ленсовета, 22</div>
-            </div>
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7 20H33M33 20L26.2 27M33 20L26.2 13" stroke="white" stroke-width="3"/>
-            </svg>
-          </div>
-        </div>
-
-      </div>
-    </div>
+    <LineBlockScroll/>
 
     <div class="menu">
       <div class="text text_normal">Меню</div>
@@ -67,7 +43,8 @@
 
       <div class="loyalty-block__wrapper">
         <h2 class="text text_normal text_white">Система лояльности</h2>
-        <h3 class="text text_medium text_white text_center">Акции и специальные условия для <br> постоянных посетителей</h3>
+        <h3 class="text text_medium text_white text_center">Акции и специальные условия для <br> постоянных посетителей
+        </h3>
 
         <div class="loyalty-list loyalty-list_margin">
 
@@ -154,89 +131,17 @@ import AppFooter from "./AppFooter.vue";
 import {WidthHeightMixin} from "../mixins/WidthHeightMixin.js";
 import LineBanner from "./LineBanner.vue";
 import InfoBlock from "./InfoBlock.vue";
+import LineBlockScroll from "./LineBlockScroll.vue";
 
 export default {
   name: "HomePage",
-  components: {InfoBlock, LineBanner, AppFooter, AppHeader},
+  components: {LineBlockScroll, InfoBlock, LineBanner, AppFooter, AppHeader},
   mixins: [WidthHeightMixin]
 }
 </script>
 
 <style lang="less" scoped>
 @import "../style";
-
-.address-block {
-  margin-top: 60px;
-  margin-left: 20px;
-
-  @media @min760 {
-    margin-top: 80px;
-  }
-
-  @media @min1200 {
-    margin-left: 100px;
-  }
-}
-
-.address-block__content {
-  display: flex;
-  gap: 20px;
-
-  overflow-x: scroll;
-
-  margin-top: 40px;
-  margin-bottom: 100px;
-
-  @media @min760 {
-    gap: 40px;
-  }
-}
-
-.address__card {
-  position: relative;
-  width: 340px;
-  height: 226px;
-
-  box-sizing: border-box;
-  overflow: hidden;
-
-  border-radius: 10px;
-  flex-shrink: 0;
-
-  @media @min760 {
-    width: 600px;
-    height: 400px;
-  }
-}
-
-.address__card__info {
-  position: absolute;
-  bottom: 0;
-
-  box-sizing: border-box;
-  padding: 0 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  width: 100%;
-  height: 56px;
-
-  background: @OrangePrimaryColor;
-
-  @media @min760 {
-    height: 80px;
-  }
-}
-
-.address__card__info__row {
-  align-items: center;
-}
-
-.address__card__img {
-  width: 100%;
-  height: auto;
-}
 
 .menu {
   margin-left: 20px;
