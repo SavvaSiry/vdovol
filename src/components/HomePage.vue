@@ -12,7 +12,9 @@
       <InfoBlock/>
     </div>
 
-    <LineBlockScroll/>
+    <LineBlockScroll
+        @scroll-to="scrollTo"
+    />
 
     <div class="menu" ref="menu">
       <div class="text text_normal">Меню</div>
@@ -79,7 +81,7 @@
         </div>
 
         <button class="button loyalty-block__button button_default">
-          <div class="text text_bold text_white">Зарегестрироваться</div>
+          <div class="text text_bold text_white">Зарегистрироваться</div>
           <svg width="28" height="17" viewBox="0 0 28 17" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 8.5H26M26 8.5L19.2 15.5M26 8.5L19.2 1.5" stroke="white" stroke-width="2"/>
           </svg>

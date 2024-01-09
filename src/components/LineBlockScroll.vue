@@ -6,7 +6,7 @@
         <h2 class="text text_normal">Адрес наших точек</h2>
         <span class="text text_medium">Всегда рядом</span>
       </div>
-      <div v-if="isWidth580()" class="row row_gap20">
+      <div v-if="isWidth580()" class="row row_gap32">
         <button @click="left()" class="button button_rounded">
           <svg width="15" height="24" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 21L3 12L12 3" stroke="white" stroke-width="3" stroke-linecap="square"/>
@@ -24,7 +24,9 @@
       <div v-for="i in 4" :key="i" class="address__card">
         <img class="address__card__img" src="../assets/info-block.png" alt="Cafe">
 
-        <div class="address__card__info">
+        <div class="address__card__info"
+             @click="this.$emit('scroll-to', 'contacts')"
+        >
           <div class="row address__card__info__row row_gap8">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd"
@@ -62,6 +64,12 @@ import {WidthHeightMixin} from "../mixins/WidthHeightMixin.js";
 export default {
   name: "LineBlockScroll",
   mixins: [WidthHeightMixin],
+  data() {
+    return {
+      position: 0,
+      drag: false,
+    }
+  },
   methods: {
     left() {
       if (this.isWidth760()) {
@@ -75,6 +83,18 @@ export default {
       } else
         this.$refs.block.scrollTo(this.$refs.block.scrollLeft + 360, 0)
     },
+    startDrag(event) {
+      this.position = event.screenX;
+      this.drag = true;
+    },
+    toDrag(event) {
+      if (this.drag) {
+        console.log(event.screenX);
+      }
+    },
+    stopDrag() {
+      this.drag = false;
+    }
   }
 }
 </script>
@@ -110,9 +130,10 @@ export default {
 .address-block__header__text-content {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 
   @media @min580 {
+    gap: 24px;
     flex-direction: row;
     align-items: center;
   }
@@ -167,7 +188,7 @@ export default {
   bottom: 0;
 
   box-sizing: border-box;
-  padding: 0 12px;
+  padding: 0 18px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -176,19 +197,26 @@ export default {
   height: 56px;
 
   background: @OrangePrimaryColor;
+  cursor: pointer;
 
   @media @min760 {
     height: 80px;
+    padding: 0 32px;
   }
 }
 
 .address__card__info__row {
   align-items: center;
+  user-select: none;
 }
 
 .address__card__img {
   width: 100%;
   height: auto;
+
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
 }
 
 .button_rounded {
@@ -207,5 +235,21 @@ export default {
   border-radius: 50%;
 
   background: @GreenPrimaryColor;
+}
+
+.scrollbooster-viewport {
+  cursor: -webkit-grab;
+  cursor: grab;
+  padding-bottom: 30px;
+  margin-bottom: -30px;
+}
+.scrollbooster-viewport:active {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+.scrollbooster-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 </style>

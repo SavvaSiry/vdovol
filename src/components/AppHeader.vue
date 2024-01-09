@@ -93,6 +93,9 @@ export default {
     gap: 60px;
     justify-content: initial;
   }
+}
 
+.header__nav__item {
+  cursor: pointer;
 }
 </style>

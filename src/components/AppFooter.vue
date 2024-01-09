@@ -4,10 +4,10 @@
       <img class="footer__img" src="../assets/logo.png" alt="">
 
       <div class="row footer__nav row_gap40">
-        <div class="text text_bold text_white" @click="this.$emit('scroll-to', 'main')">Главная</div>
-        <div class="text text_bold text_white" @click="this.$emit('scroll-to', 'menu')">Блюда</div>
-        <div class="text text_bold text_white" @click="this.$emit('scroll-to', 'loyalty')">Система лояльности</div>
-        <div class="text text_bold text_white" @click="this.$emit('scroll-to', 'contacts')">Адреса</div>
+        <div class="text footer__nav__item text_bold text_white" @click="this.$emit('scroll-to', 'main')">Главная</div>
+        <div class="text footer__nav__item text_bold text_white" @click="this.$emit('scroll-to', 'menu')">Блюда</div>
+        <div class="text footer__nav__item text_bold text_white" @click="this.$emit('scroll-to', 'loyalty')">Система лояльности</div>
+        <div class="text footer__nav__item text_bold text_white" @click="this.$emit('scroll-to', 'contacts')">Адреса</div>
       </div>
 
       <div class="row row_gap8">
@@ -22,7 +22,7 @@
         </svg>
       </div>
 
-      <div class="text text_small text_light">2023 (C) Вдоволь. Разработка сайта terexov</div>
+      <div class="text text_small text_light">2024 (C) Вдоволь. Разработка сайта terexov</div>
 
     </div>
 
@@ -74,6 +74,10 @@ export default {
     flex-direction: row;
     gap: 60px;
   }
+}
+
+.footer__nav__item {
+  cursor: pointer;
 }
 
 .footer__img {
