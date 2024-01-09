@@ -9,7 +9,7 @@
           <div class="header__nav__item" @click="this.$emit('scroll-to', 'loyalty')">Акции</div>
           <div class="header__nav__item" @click="this.$emit('scroll-to', 'contacts')">Как нас найти</div>
         </div>
-        <div class="text header__phone text_bold">+ 7 (921) 483 38 83</div>
+        <div class="text header__phone text_bold">{{ phoneNumber }}</div>
       </div>
 
       <div v-if="!isWidth580()" class="text header__nav text_bold">
@@ -28,6 +28,12 @@ import {WidthHeightMixin} from "../mixins/WidthHeightMixin.js";
 export default {
   name: "AppHeader",
   mixins: [WidthHeightMixin],
+  props: {
+    phoneNumber: {
+      require: true,
+      type: String
+    },
+  }
 }
 </script>
 

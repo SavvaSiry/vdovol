@@ -96,7 +96,7 @@ export default {
   async mounted() {
     this.selectedCard = this.cards[0];
 
-    initMap();
+    // initMap();
 
     async function initMap() {
       await ymaps3.ready;

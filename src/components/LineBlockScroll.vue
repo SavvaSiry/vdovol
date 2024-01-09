@@ -83,18 +83,6 @@ export default {
       } else
         this.$refs.block.scrollTo(this.$refs.block.scrollLeft + 360, 0)
     },
-    startDrag(event) {
-      this.position = event.screenX;
-      this.drag = true;
-    },
-    toDrag(event) {
-      if (this.drag) {
-        console.log(event.screenX);
-      }
-    },
-    stopDrag() {
-      this.drag = false;
-    }
   }
 }
 </script>

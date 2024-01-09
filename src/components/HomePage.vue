@@ -1,6 +1,7 @@
 <template>
   <AppHeader
       @scroll-to="scrollTo"
+      :phoneNumber="page.mainPhoneNumber"
   />
 
   <main>
@@ -9,7 +10,11 @@
     />
 
     <div ref="main">
-      <InfoBlock/>
+      <InfoBlock
+          :mainBanner="mainBanner"
+          :sailText="page.sailText"
+          :sailTextBold="page.sailTextBold"
+      />
     </div>
 
     <LineBlockScroll
@@ -33,7 +38,6 @@
       />
     </div>
 
-
     <LineBanner
         :text="'СКИДКА 30%'"
     />
@@ -43,8 +47,6 @@
 
       />
     </div>
-
-
   </main>
 
   <AppFooter
@@ -62,6 +64,7 @@ import LineBlockScroll from "./LineBlockScroll.vue";
 import CardBlock from "./CardBlock.vue";
 import MenuBLock from "./MenuBlock.vue";
 import LoyaltyBlock from "./LoyaltyBlock.vue";
+import axios from "axios";
 
 export default {
   name: "HomePage",
@@ -73,6 +76,20 @@ export default {
         behavior: 'smooth'
       })
     }
+  },
+  data() {
+    return {
+      page: {},
+      mainBanner: "",
+    }
+  },
+  created() {
+    axios
+        .get('https://vdovol.terexov.ru/api/content/item/page')
+        .then((response) => {
+          this.page = response.data
+          this.mainBanner = response.data.mainBanner.path
+        })
   }
 }
 </script>
