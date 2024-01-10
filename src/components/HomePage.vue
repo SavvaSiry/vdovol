@@ -117,42 +117,18 @@ export default {
       },
     }
   },
-  // metaInfo() {
-  //   if (this.page !== undefined) {
-  //     return {
-  //       title: this.page.metaTitle,
-  //       description: this.page.metaDescription,
-  //       og: {
-  //         title: this.page.metaTitle,
-  //         description: this.page.metaDescription,
-  //         image: this.page.metaImage,
-  //       }
-  //     }
-  //   } else {
-  //     return {
-  //       title: 'this.page.metaTitle',
-  //           description: 'this.page.metaTitle',
-  //           og: {
-  //             title: 'this.page.metaTitle',
-  //             description: 'this.page.metaTitle',
-  //             image: 'this.page.metaTitle',
-  //           }
-  //     }
-  //   }
-  // },
   metaInfo() {
     return {
-      title: 'this.page.metaTitle',
-      description: 'this.page.metaTitle',
-      og: {
-        title: 'this.page.metaTitle',
-        description: 'this.page.metaTitle',
-        image: 'this.page.metaTitle',
-      }
+      title: this.page.metaTitle,
+      meta: [
+        { vmid: 'og:description', name: 'og:description', content: this.page.metaDescription },
+        { vmid: 'og:title', name: 'og:title', content: this.page.metaDescription },
+        { vmid: 'og:image', name: 'og:image', content: this.page.metaImage.path },
+      ]
     }
   },
   async beforeCreate() {
-    axios
+    await axios
         .get(import.meta.env.VITE_API + '/content/item/page?populate=1')
         .then((response) => {
           this.page = response.data
