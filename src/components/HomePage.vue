@@ -63,13 +63,15 @@
           :vkLink="page.vkLink"
           :mapCoordinateX="page.mapCoordinateX"
           :mapCoordinateY="page.mapCoordinateY"
+          :mapH1="page.mapH1"
+          :mapH2="page.mapH2"
       />
     </div>
   </main>
 
   <AppFooter
       @scroll-to="scrollTo"
-      :vkLink="page.vk-link"
+      :vkLink="page.vkLink"
       :phoneLink="page.phoneLink"
   />
 </template>

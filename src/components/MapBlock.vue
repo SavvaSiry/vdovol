@@ -32,6 +32,7 @@
 
 
         <yandex-map
+            v-if="restaurants !== null && restaurants !== undefined"
             :settings="{
                           location: {
                             center: [parseFloat(mapCoordinateY), parseFloat(mapCoordinateX)],
@@ -135,8 +136,15 @@ export default {
     mapCoordinateY: {
       type: String,
       require: true,
-    }
-
+    },
+    mapH1: {
+      type: String,
+      require: true,
+    },
+    mapH2: {
+      type: String,
+      require: true,
+    },
   },
   methods: {
     openInNewTab(url) {
