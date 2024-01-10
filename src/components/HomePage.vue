@@ -11,7 +11,7 @@
 
     <div ref="main">
       <InfoBlock
-          :mainBanner="mainBanner"
+          :mainBanner="page.mainBanner"
           :sailText="page.sailText"
           :sailTextBold="page.sailTextBold"
       />

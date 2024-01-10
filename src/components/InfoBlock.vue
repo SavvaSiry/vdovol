@@ -54,7 +54,8 @@
     </div>
 
     <div class="info-block__img-container">
-      <img class="info-block__img" :src="'https://vdovol.terexov.ru/storage/uploads/' + mainBanner">
+      <img v-if="mainBanner !== '' && mainBanner !== null && mainBanner !== undefined" class="info-block__img" :src="'https://vdovol.terexov.ru/storage/uploads/' + mainBanner.path">
+      <div v-else class="background background_pr-green"/>
     </div>
 
 
@@ -69,7 +70,7 @@ export default {
   mixins: [WidthHeightMixin],
   props: {
     mainBanner: {
-      type: String,
+      type: Object,
       require: true
     },
     sailText: {
@@ -179,7 +180,6 @@ export default {
   height: 100%;
   flex-shrink: 0;
 
-  background: #1E2024;
   border-radius: 16px;
 
   display: none;
@@ -192,6 +192,8 @@ export default {
 .info-block__img {
   height: 100%;
   width: auto;
+
+  background: @GreenPrimaryColor;
 
   @media @min1900 {
     height: auto;
