@@ -129,7 +129,7 @@ export default {
       meta: [
         { vmid: 'og:description', name: 'og:description', content: this.page.metaDescription },
         { vmid: 'og:title', name: 'og:title', content: this.page.metaDescription },
-        { vmid: 'og:image', name: 'og:image', content: this.page.metaImage.path },
+        { vmid: 'og:image', name: 'og:image', content: import.meta.env.VITE_RESOURCE_API + this.page.metaImage.path },
       ]
     }
   },
