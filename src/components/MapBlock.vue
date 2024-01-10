@@ -107,25 +107,14 @@ export default {
   name: "MapBlock",
   components: {
     YandexMapMarker,
-    YandexMapDefaultMarker, YandexMapDefaultFeaturesLayer, YandexMapDefaultSchemeLayer, YandexMap
+    YandexMapDefaultMarker,
+    YandexMapDefaultFeaturesLayer,
+    YandexMapDefaultSchemeLayer,
+    YandexMap
   },
   data() {
     return {
       selectedCard: {},
-      settings: {
-        location: {
-          center: [37.617644, 55.755819],
-          zoom: 10,
-        },
-      },
-      points: [
-        {coordinates: [37.8, 55.8]},
-        {
-          coordinates: [37.715175, 55.833436],
-          title: '<strong>Silver crimson<strong> color',
-          draggable: true,
-        },
-      ],
     }
   },
   props: {
