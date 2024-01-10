@@ -8,12 +8,12 @@
       </div>
       <div v-if="isWidth580()" class="row row_gap32">
         <button @click="left()" class="button button_rounded">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="address-block__svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16 21L7 12L16 3" stroke="white" stroke-width="3" stroke-linecap="square"/>
           </svg>
         </button>
         <button @click="right()" class="button button_rounded">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg class="address-block__svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M8 3L17 12L8 21" stroke="white" stroke-width="3" stroke-linecap="square"/>
           </svg>
         </button>
@@ -119,6 +119,16 @@ export default {
 
   @media @min1200 {
     margin-left: 100px;
+  }
+}
+
+.address-block__svg {
+  width: 18px;
+  height: 18px;
+
+  @media @min760 {
+    width: 24px;
+    height: 24px;
   }
 }
 
