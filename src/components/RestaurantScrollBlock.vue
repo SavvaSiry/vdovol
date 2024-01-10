@@ -8,8 +8,8 @@
       </div>
       <div v-if="isWidth580()" class="row row_gap32">
         <button @click="left()" class="button button_rounded">
-          <svg width="15" height="24" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 21L3 12L12 3" stroke="white" stroke-width="3" stroke-linecap="square"/>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 21L7 12L16 3" stroke="white" stroke-width="3" stroke-linecap="square"/>
           </svg>
         </button>
         <button @click="right()" class="button button_rounded">

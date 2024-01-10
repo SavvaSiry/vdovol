@@ -168,6 +168,11 @@ export default {
   }
 
   @media @min1200 {
+    top: 150px;
+    right: -190px;
+  }
+
+  @media @min1400 {
     top: -60px;
     right: -200px;
   }

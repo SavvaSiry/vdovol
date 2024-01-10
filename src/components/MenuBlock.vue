@@ -125,6 +125,8 @@ export default {
   display: flex;
   overflow-x: scroll;
 
+  padding-bottom: 15px;
+
   @media @min1400 {
     gap: 40px;
     display: grid;
