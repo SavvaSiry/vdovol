@@ -32,6 +32,8 @@
           :dishes="page.dishes"
           :menuButtonLink="page.menuButtonLink"
           :menuButtonActive="page.menuButtonActive"
+          :menuH1="page.menuH1"
+          :menuH2="page.menuH2"
       />
     </div>
 

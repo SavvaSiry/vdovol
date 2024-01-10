@@ -1,7 +1,7 @@
 <template>
   <div class="menu">
-    <div class="text text_normal">Меню</div>
-    <div class="text text_medium">По домашнему, как вы любите</div>
+    <div class="text text_normal">{{ menuH1 }}</div>
+    <div class="text text_medium">{{ menuH2 }}</div>
     <div class="menu__list">
 
       <div v-for="dish in dishes" :key="dish.name" class="menu__card">
@@ -68,7 +68,15 @@ export default {
     menuButtonActive: {
       type: Boolean,
       require: true
-    }
+    },
+    menuH1: {
+      type: String,
+      require: true
+    },
+    menuH2: {
+      type: String,
+      require: true
+    },
   },
   methods: {
     openInNewTab(url) {
