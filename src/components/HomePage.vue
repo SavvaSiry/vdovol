@@ -110,17 +110,54 @@ export default {
   },
   data() {
     return {
-      page: {},
+      page: {
+        metaTitle: '',
+        metaDescription: '',
+        metaImage: '',
+      },
+    }
+  },
+  // metaInfo() {
+  //   if (this.page !== undefined) {
+  //     return {
+  //       title: this.page.metaTitle,
+  //       description: this.page.metaDescription,
+  //       og: {
+  //         title: this.page.metaTitle,
+  //         description: this.page.metaDescription,
+  //         image: this.page.metaImage,
+  //       }
+  //     }
+  //   } else {
+  //     return {
+  //       title: 'this.page.metaTitle',
+  //           description: 'this.page.metaTitle',
+  //           og: {
+  //             title: 'this.page.metaTitle',
+  //             description: 'this.page.metaTitle',
+  //             image: 'this.page.metaTitle',
+  //           }
+  //     }
+  //   }
+  // },
+  metaInfo() {
+    return {
+      title: 'this.page.metaTitle',
+      description: 'this.page.metaTitle',
+      og: {
+        title: 'this.page.metaTitle',
+        description: 'this.page.metaTitle',
+        image: 'this.page.metaTitle',
+      }
     }
   },
   async beforeCreate() {
-    await axios
+    axios
         .get(import.meta.env.VITE_API + '/content/item/page?populate=1')
         .then((response) => {
           this.page = response.data
-          // console.log(response.data)
-        })
-  }
+        }).catch((error) => console.log(error));
+  },
 }
 </script>
 
