@@ -26,7 +26,12 @@
 
     <div class="loyalty-block__back"/>
     <div class="loyalty-block__img-container">
-      <img class="loyalty-block__img" src="../assets/info-block.png" alt="Info">
+      <img class="loyalty-block__img"
+           alt="restaurant"
+           v-if="loyaltyBackImage !== '' && loyaltyBackImage !== null && loyaltyBackImage !== undefined"
+           :src="'https://vdovol.terexov.ru/storage/uploads/' + loyaltyBackImage.path"
+      >
+
     </div>
   </div>
 </template>
@@ -52,6 +57,10 @@ export default {
     },
     loyaltyButtonActive: {
       type: Boolean,
+      require: true
+    },
+    loyaltyBackImage: {
+      type: String,
       require: true
     }
   },

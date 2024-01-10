@@ -48,6 +48,7 @@
           :loyaltyH2="page.loyaltyH2"
           :loyaltyButtonLink="page.loyaltyButtonLink"
           :loyaltyButtonActive="page.loyaltyButtonActive"
+          :loyaltyBackImage="page.loyaltyBackImage"
       />
     </div>
 

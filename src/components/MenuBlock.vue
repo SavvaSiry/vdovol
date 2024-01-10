@@ -145,6 +145,8 @@ export default {
   justify-content: center;
   overflow: hidden;
 
+  background: @GreyColor;
+
   width: 280px;
   height: 280px;
   flex: 1;
