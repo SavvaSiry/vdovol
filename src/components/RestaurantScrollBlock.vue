@@ -66,7 +66,7 @@
 import {WidthHeightMixin} from "../mixins/WidthHeightMixin.js";
 
 export default {
-  name: "LineBlockScroll",
+  name: "RestaurantScrollBlock",
   mixins: [WidthHeightMixin],
   props: {
     restaurants: {

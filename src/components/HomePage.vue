@@ -10,14 +10,17 @@
     />
 
     <div ref="main">
-      <InfoBlock
+      <MainBlock
           :mainBanner="page.mainBanner"
-          :sailText="page.sailText"
-          :sailTextBold="page.sailTextBold"
+          :mainSailText="page.mainSailText"
+          :mainSailTextBold="page.mainSailTextBold"
+          :mainSailActive="page.mainSailActive"
+          :mainH1="page.mainH1"
+          :mainH2="page.mainH2"
       />
     </div>
 
-    <LineBlockScroll
+    <RestaurantScrollBlock
         @scroll-to="scrollTo"
         :restaurants="page.restaurants"
     />
@@ -51,6 +54,8 @@
     <div ref="contacts">
       <CardBlock
           :restaurants="page.restaurants"
+          :mainPhoneNumber="page.mainPhoneNumber"
+          :vkLink="page.vkLink"
       />
     </div>
   </main>
@@ -65,8 +70,8 @@ import AppHeader from "./AppHeader.vue";
 import AppFooter from "./AppFooter.vue";
 import {WidthHeightMixin} from "../mixins/WidthHeightMixin.js";
 import LineBanner from "./LineBanner.vue";
-import InfoBlock from "./InfoBlock.vue";
-import LineBlockScroll from "./LineBlockScroll.vue";
+import MainBlock from "./MainBlock.vue";
+import RestaurantScrollBlock from "./RestaurantScrollBlock.vue";
 import CardBlock from "./CardBlock.vue";
 import MenuBLock from "./MenuBlock.vue";
 import LoyaltyBlock from "./LoyaltyBlock.vue";
@@ -74,7 +79,16 @@ import axios from "axios";
 
 export default {
   name: "HomePage",
-  components: {LoyaltyBlock, MenuBLock, CardBlock, LineBlockScroll, InfoBlock, LineBanner, AppFooter, AppHeader},
+  components: {
+    MainBlock,
+    LoyaltyBlock,
+    MenuBLock,
+    CardBlock,
+    LineBanner,
+    AppFooter,
+    AppHeader,
+    RestaurantScrollBlock
+  },
   mixins: [WidthHeightMixin],
   methods: {
     scrollTo(hook) {
@@ -88,8 +102,8 @@ export default {
       page: {},
     }
   },
-  created() {
-    axios
+  async beforeCreate() {
+    await axios
         .get('https://vdovol.terexov.ru/api/content/item/page?populate=1')
         .then((response) => {
           this.page = response.data
