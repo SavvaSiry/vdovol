@@ -23,6 +23,8 @@
     <RestaurantScrollBlock
         @scroll-to="scrollTo"
         :restaurants="page.restaurants"
+        :addressesH1="page.addressesH1"
+        :addressesH2="page.addressesH2"
     />
 
     <div ref="menu">

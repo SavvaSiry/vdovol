@@ -3,8 +3,8 @@
 
     <div class="row address-block__header row_jc-sb row_al-c">
       <div class="address-block__header__text-content">
-        <h2 class="text text_normal">Адрес наших точек</h2>
-        <span class="text text_medium">Всегда рядом</span>
+        <h2 class="text text_normal">{{ addressesH1 }}</h2>
+        <span class="text text_medium">{{ addressesH2 }}</span>
       </div>
       <div v-if="isWidth580()" class="row row_gap32">
         <button @click="left()" class="button button_rounded">
@@ -72,7 +72,15 @@ export default {
     restaurants: {
       type: Array,
       require: true
-    }
+    },
+    addressesH1: {
+      type: String,
+      require: true
+    },
+    addressesH2: {
+      type: String,
+      require: true
+    },
   },
   methods: {
     left() {
