@@ -27,7 +27,6 @@
       <div @click="openInNewTab('https://terexov.ru/')" class="text pointer text_small text_light">2024 (C) Вдоволь. Разработка сайта terexov</div>
 
     </div>
-
   </footer>
 
 </template>
