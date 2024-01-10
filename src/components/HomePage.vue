@@ -6,7 +6,7 @@
 
   <main>
     <LineBanner
-        :text="'24 часа'"
+        :ticker="page.mainTicker"
     />
 
     <div ref="main">
@@ -19,32 +19,38 @@
 
     <LineBlockScroll
         @scroll-to="scrollTo"
+        :restaurants="page.restaurants"
     />
 
     <div ref="menu">
       <MenuBLock
-
+          :dishes="page.dishes"
+          :menuButtonLink="page.menuButtonLink"
+          :menuButtonActive="page.menuButtonActive"
       />
     </div>
 
-
     <LineBanner
-        :text="'СКИДКА 30%'"
+        :ticker="page.loyaltyTicker"
     />
 
     <div ref="loyalty">
       <LoyaltyBlock
-
+          :loyaltyList="page.loyaltyList"
+          :loyaltyH1="page.loyaltyH1"
+          :loyaltyH2="page.loyaltyH2"
+          :loyaltyButtonLink="page.loyaltyButtonLink"
+          :loyaltyButtonActive="page.loyaltyButtonActive"
       />
     </div>
 
     <LineBanner
-        :text="'СКИДКА 30%'"
+        :ticker="page.loyaltyTicker"
     />
 
     <div ref="contacts">
       <CardBlock
-
+          :restaurants="page.restaurants"
       />
     </div>
   </main>
@@ -80,15 +86,14 @@ export default {
   data() {
     return {
       page: {},
-      mainBanner: "",
     }
   },
   created() {
     axios
-        .get('https://vdovol.terexov.ru/api/content/item/page')
+        .get('https://vdovol.terexov.ru/api/content/item/page?populate=1')
         .then((response) => {
           this.page = response.data
-          this.mainBanner = response.data.mainBanner.path
+          console.log(response.data)
         })
   }
 }

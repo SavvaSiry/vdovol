@@ -21,8 +21,12 @@
     </div>
 
     <div class="address-block__content" ref="block">
-      <div v-for="i in 4" :key="i" class="address__card">
-        <img class="address__card__img" src="../assets/info-block.png" alt="Cafe">
+      <div v-for="rest in restaurants" :key="rest.address" class="address__card">
+
+        <div>
+<!--          <img class="address__card__img" src="../assets/info-block.png" alt="Cafe">-->
+          <img class="address__card__img" :src="'https://vdovol.terexov.ru/storage/uploads/' + rest.picture.path" alt="Cafe">
+        </div>
 
         <div class="address__card__info"
              @click="this.$emit('scroll-to', 'contacts')"
@@ -33,7 +37,7 @@
                     d="M13 20.9998H12H10.9997L6.49985 16.5C3.46229 13.4624 3.46229 8.53754 6.49985 5.49998C9.53742 2.46241 14.4623 2.46241 17.4999 5.49998C20.5374 8.53754 20.5374 13.4624 17.4999 16.5L13 20.9998ZM12 13C13.1046 13 14 12.1046 14 11C14 9.89543 13.1046 9 12 9C10.8954 9 10 9.89543 10 11C10 12.1046 10.8954 13 12 13Z"
                     fill="white"/>
             </svg>
-            <div class="text text_semi-bold text_white">Ленсовета, 22</div>
+            <div class="text text_semi-bold text_white">{{ rest.address }}</div>
           </div>
           <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M7 20H33M33 20L26.2 27M33 20L26.2 13" stroke="white" stroke-width="3"/>
@@ -64,10 +68,10 @@ import {WidthHeightMixin} from "../mixins/WidthHeightMixin.js";
 export default {
   name: "LineBlockScroll",
   mixins: [WidthHeightMixin],
-  data() {
-    return {
-      position: 0,
-      drag: false,
+  props: {
+    restaurants: {
+      type: Array,
+      require: true
     }
   },
   methods: {
@@ -223,21 +227,5 @@ export default {
   border-radius: 50%;
 
   background: @GreenPrimaryColor;
-}
-
-.scrollbooster-viewport {
-  cursor: -webkit-grab;
-  cursor: grab;
-  padding-bottom: 30px;
-  margin-bottom: -30px;
-}
-.scrollbooster-viewport:active {
-  cursor: -webkit-grabbing;
-  cursor: grabbing;
-}
-.scrollbooster-content {
-  position: absolute;
-  width: 100%;
-  height: 100%;
 }
 </style>

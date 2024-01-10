@@ -2,19 +2,20 @@
   <div class="loyalty-block">
 
     <div class="loyalty-block__wrapper">
-      <h2 class="text text_normal text_white">Система лояльности</h2>
-      <h3 class="text text_medium text_white text_center">Акции и специальные условия для <br> постоянных посетителей
-      </h3>
+      <h2 class="text text_normal text_white text_center">{{ loyaltyH1 }}</h2>
+      <h3 class="text text_medium text_white text_center">{{ loyaltyH2 }}</h3>
 
-      <div class="loyalty-list loyalty-list_margin">
+      <ul class="loyalty-list loyalty-list_margin">
+        <li v-for="loyalty in loyaltyList" :key="loyalty.title" class="loyalty-card">
+          <div class="text text_semi-bold text_inherit">{{ loyalty.title }}</div>
+          <div class="text text_medium text_inherit">{{ loyalty.underTitle }}</div>
+        </li>
+      </ul>
 
-        <div v-for="i in 4" :key="i" class="loyalty-card">
-          <div class="text text_semi-bold">Кэшбек до 5%</div>
-          <div class="text text_medium">При участии в нашей системе лояльсности</div>
-        </div>
-      </div>
-
-      <button class="button loyalty-block__button button_default">
+      <button class="button loyalty-block__button button_default"
+              v-if="loyaltyButtonActive"
+              @click="openInNewTab(loyaltyButtonLink)"
+      >
         <div class="text text_bold text_white">Зарегистрироваться</div>
         <svg width="28" height="17" viewBox="0 0 28 17" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0 8.5H26M26 8.5L19.2 15.5M26 8.5L19.2 1.5" stroke="white" stroke-width="2"/>
@@ -32,7 +33,33 @@
 
 <script>
 export default {
-  name: "LoyaltyBlock"
+  name: "LoyaltyBlock",
+  props: {
+    loyaltyList: {
+      type: Array,
+      require: true,
+    },
+    loyaltyH1: {
+      type: String,
+      require: true
+    },
+    loyaltyH2: {
+      type: String,
+      require: true
+    },
+    loyaltyButtonLink: {
+      type: String,
+    },
+    loyaltyButtonActive: {
+      type: Boolean,
+      require: true
+    }
+  },
+  methods: {
+    openInNewTab(url) {
+      window.open(url, '_blank', 'noreferrer');
+    },
+  },
 }
 </script>
 
@@ -104,6 +131,11 @@ export default {
 
   background: @WhiteColor;
   border-radius: 10px;
+
+  &:first-child {
+    background: @OrangePrimaryColor;
+    color: @WhiteColor;
+  }
 
   @media @min760 {
     width: 550px;

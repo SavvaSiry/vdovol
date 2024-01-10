@@ -4,10 +4,17 @@
     <div class="text text_medium">По домашнему, как вы любите</div>
     <div class="menu__list">
 
-      <div v-for="i in 8" :key="i" class="menu__card">
+      <div v-for="dish in dishes" :key="dish.name" class="menu__card">
         <div class="menu__card__img-container">
           <div class="menu__card__img">
-            <svg class="menu__card__img__svg" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+            <img class="menu__card__img"
+                 v-if="dish.picture !== undefined && dish.picture !== null"
+                 :src="'https://vdovol.terexov.ru/storage/uploads/' + dish.picture.path"
+                 alt="picture">
+
+            <svg v-else class="menu__card__img__svg" viewBox="0 0 160 160" fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
               <mask id="path-1-inside-1_411_10954" fill="white">
                 <path fill-rule="evenodd" clip-rule="evenodd"
                       d="M157.977 72.997C158.128 70.7929 156.323 69 154.114 69H80.0004L5.88716 69C3.67802 69 1.87301 70.7929 2.02342 72.997C2.53684 80.5205 4.49703 87.9267 7.83317 94.9069C11.7587 103.12 17.5125 110.583 24.766 116.87C28.5165 120.12 32.63 123.023 37.0385 125.539V131C37.0385 134.866 40.1725 138 44.0385 138H115.963C119.829 138 122.963 134.866 122.963 131V125.539C127.371 123.023 131.484 120.12 135.235 116.87C142.488 110.583 148.242 103.12 152.168 94.9069C155.504 87.9267 157.464 80.5205 157.977 72.997Z"/>
@@ -29,14 +36,17 @@
           </div>
         </div>
         <div class="menu__card__info">
-          <div class="text text_bold">Шаверма классическая</div>
-          <div class="text text_bold">89 р / 100 г</div>
-          <div class="text text_small">Приготовили очень вкусно</div>
+          <div class="text text_bold">{{ dish.name }}</div>
+          <div class="text text_bold">{{ dish.price }} / {{ dish.weight }}</div>
+          <div class="text text_small">{{ dish.underTitle }}</div>
         </div>
       </div>
     </div>
 
-    <button class="button menu__button button_default">
+    <button class="button menu__button button_default"
+            v-if="menuButtonActive"
+            @click="openInNewTab(menuButtonLink)"
+    >
       <div class="text text_bold text_white">Смотреть полностью</div>
       <svg width="28" height="17" viewBox="0 0 28 17" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 8.5H26M26 8.5L19.2 15.5M26 8.5L19.2 1.5" stroke="white" stroke-width="2"/>
@@ -47,7 +57,25 @@
 
 <script>
 export default {
-  name: "MenuBLock"
+  name: "MenuBLock",
+  props: {
+    dishes: {
+      type: Array,
+      require: true
+    },
+    menuButtonLink: {
+      type: String,
+    },
+    menuButtonActive: {
+      type: Boolean,
+      require: true
+    }
+  },
+  methods: {
+    openInNewTab(url) {
+      window.open(url, '_blank', 'noreferrer');
+    },
+  },
 }
 </script>
 
