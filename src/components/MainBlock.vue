@@ -52,7 +52,9 @@
     </div>
 
     <div class="info-block__img-container">
-      <img v-if="mainBanner !== '' && mainBanner !== null && mainBanner !== undefined" class="info-block__img" :src="'https://vdovol.terexov.ru/storage/uploads/' + mainBanner.path">
+      <img v-if="mainBanner !== '' && mainBanner !== null && mainBanner !== undefined"
+           class="info-block__img"
+           :src="getResourcePath() + mainBanner.path">
       <div v-else class="background background_pr-green"/>
     </div>
 
@@ -89,8 +91,10 @@ export default {
       type: String,
     },
   },
-  mounted() {
-    // console.log("I HAVE BEEN MOUNTED")
+  methods: {
+    getResourcePath() {
+      return import.meta.env.VITE_RESOURCE_API;
+    }
   }
 }
 </script>

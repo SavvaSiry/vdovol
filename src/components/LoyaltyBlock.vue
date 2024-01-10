@@ -29,7 +29,7 @@
       <img class="loyalty-block__img"
            alt="restaurant"
            v-if="loyaltyBackImage !== '' && loyaltyBackImage !== null && loyaltyBackImage !== undefined"
-           :src="'https://vdovol.terexov.ru/storage/uploads/' + loyaltyBackImage.path"
+           :src="getResourcePath() + loyaltyBackImage.path"
       >
 
     </div>
@@ -68,6 +68,9 @@ export default {
     openInNewTab(url) {
       window.open(url, '_blank', 'noreferrer');
     },
+    getResourcePath() {
+      return import.meta.env.VITE_RESOURCE_API;
+    }
   },
 }
 </script>

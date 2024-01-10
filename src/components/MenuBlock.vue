@@ -9,7 +9,7 @@
 
           <img class="menu__card__img"
                v-if="dish.picture !== undefined && dish.picture !== null"
-               :src="'https://vdovol.terexov.ru/storage/uploads/' + dish.picture.path"
+               :src="getResourcePath() + dish.picture.path"
                alt="picture">
 
           <svg v-else class="menu__card__img__svg" viewBox="0 0 160 160" fill="none"
@@ -82,6 +82,9 @@ export default {
     openInNewTab(url) {
       window.open(url, '_blank', 'noreferrer');
     },
+    getResourcePath() {
+      return import.meta.env.VITE_RESOURCE_API;
+    }
   },
 }
 </script>

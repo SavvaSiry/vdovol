@@ -61,7 +61,7 @@
 
         <img class="contacts__info__content__img"
              v-if="selectedCard.picture !== null && selectedCard.picture !== undefined"
-             :src="'https://vdovol.terexov.ru/storage/uploads/' + selectedCard.picture.path"
+             :src="getResourcePath() + selectedCard.picture.path"
         />
 
         <div class="text text_bold">{{ selectedCard.address }}</div>
@@ -150,6 +150,9 @@ export default {
     openInNewTab(url) {
       window.open(url, '_blank', 'noreferrer');
     },
+    getResourcePath() {
+      return import.meta.env.VITE_RESOURCE_API;
+    }
   },
   watch: {
     restaurants: function (newVal, oldVal) {

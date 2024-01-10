@@ -26,7 +26,7 @@
         <div>
 <!--          <img class="address__card__img" src="../assets/info-block.png" alt="Cafe">-->
           <img class="address__card__img"
-               :src="'https://vdovol.terexov.ru/storage/uploads/' + rest.picture.path"
+               :src="getResourcePath() + rest.picture.path"
                alt="Cafe">
         </div>
 
@@ -97,6 +97,9 @@ export default {
       } else
         this.$refs.block.scrollTo(this.$refs.block.scrollLeft + 360, 0)
     },
+    getResourcePath() {
+      return import.meta.env.VITE_RESOURCE_API;
+    }
   }
 }
 </script>

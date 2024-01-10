@@ -115,10 +115,10 @@ export default {
   },
   async beforeCreate() {
     await axios
-        .get('https://vdovol.terexov.ru/api/content/item/page?populate=1')
+        .get(import.meta.env.VITE_API + '/content/item/page?populate=1')
         .then((response) => {
           this.page = response.data
-          console.log(response.data)
+          // console.log(response.data)
         })
   }
 }
