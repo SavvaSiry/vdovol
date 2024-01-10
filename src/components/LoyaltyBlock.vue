@@ -60,7 +60,7 @@ export default {
       require: true
     },
     loyaltyBackImage: {
-      type: String,
+      type: Object,
       require: true
     }
   },

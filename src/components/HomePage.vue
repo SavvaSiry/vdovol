@@ -57,10 +57,12 @@
     />
 
     <div ref="contacts">
-      <CardBlock
+      <MapBlock
           :restaurants="page.restaurants"
           :mainPhoneNumber="page.mainPhoneNumber"
           :vkLink="page.vkLink"
+          :mapCoordinateX="page.mapCoordinateX"
+          :mapCoordinateY="page.mapCoordinateY"
       />
     </div>
   </main>
@@ -77,7 +79,7 @@ import {WidthHeightMixin} from "../mixins/WidthHeightMixin.js";
 import LineBanner from "./LineBanner.vue";
 import MainBlock from "./MainBlock.vue";
 import RestaurantScrollBlock from "./RestaurantScrollBlock.vue";
-import CardBlock from "./CardBlock.vue";
+import MapBlock from "./MapBlock.vue";
 import MenuBLock from "./MenuBlock.vue";
 import LoyaltyBlock from "./LoyaltyBlock.vue";
 import axios from "axios";
@@ -88,7 +90,7 @@ export default {
     MainBlock,
     LoyaltyBlock,
     MenuBLock,
-    CardBlock,
+    MapBlock,
     LineBanner,
     AppFooter,
     AppHeader,

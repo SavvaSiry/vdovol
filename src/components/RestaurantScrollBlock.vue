@@ -25,7 +25,9 @@
 
         <div>
 <!--          <img class="address__card__img" src="../assets/info-block.png" alt="Cafe">-->
-          <img class="address__card__img" :src="'https://vdovol.terexov.ru/storage/uploads/' + rest.picture.path" alt="Cafe">
+          <img class="address__card__img"
+               :src="'https://vdovol.terexov.ru/storage/uploads/' + rest.picture.path"
+               alt="Cafe">
         </div>
 
         <div class="address__card__info"
