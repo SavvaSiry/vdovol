@@ -21,7 +21,8 @@
     </div>
 
     <RestaurantScrollBlock
-        @scroll-to="scrollTo"
+        @scrollTo="scrollTo"
+        @selectMapRestaurant="selectMapRestaurant"
         :restaurants="page.restaurants"
         :addressesH1="page.addressesH1"
         :addressesH2="page.addressesH2"
@@ -58,6 +59,7 @@
 
     <div ref="contacts">
       <MapBlock
+          ref="mapRef"
           :restaurants="page.restaurants"
           :mainPhoneNumber="page.mainPhoneNumber"
           :vkLink="page.vkLink"
@@ -102,6 +104,10 @@ export default {
   },
   mixins: [WidthHeightMixin],
   methods: {
+    selectMapRestaurant(hook, index) {
+      this.$refs.mapRef.selectedCard = this.page.restaurants[index];
+      this.scrollTo(hook);
+    },
     scrollTo(hook) {
       this.$refs[hook].scrollIntoView({
         behavior: 'smooth'

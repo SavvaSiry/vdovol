@@ -21,7 +21,7 @@
     </div>
 
     <div class="address-block__content" ref="block">
-      <div v-for="rest in restaurants" :key="rest.address" class="address__card">
+      <div v-for="(rest, index) in restaurants" :key="rest.address" class="address__card">
 
         <div>
 <!--          <img class="address__card__img" src="../assets/info-block.png" alt="Cafe">-->
@@ -31,7 +31,7 @@
         </div>
 
         <div class="address__card__info"
-             @click="this.$emit('scroll-to', 'contacts')"
+             @click="this.$emit('selectMapRestaurant', 'contacts', index)"
         >
           <div class="row address__card__info__row row_gap8">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
