@@ -9,7 +9,9 @@
           <div class="header__nav__item" @click="this.$emit('scroll-to', 'loyalty')">Акции</div>
           <div class="header__nav__item" @click="this.$emit('scroll-to', 'contacts')">Как нас найти</div>
         </div>
-        <div class="text header__phone text_bold">{{ phoneNumber }}</div>
+        <div
+            @click="callNumber(this.phoneNumber)"
+            class="text phone header__phone text_bold">{{ phoneNumber }}</div>
       </div>
 
       <div v-if="!isWidth580()" class="text header__nav text_bold">
@@ -33,6 +35,18 @@ export default {
       require: true,
       type: String
     },
+  },
+  methods: {
+    callNumber(number) {
+      let phone = number
+          .replaceAll('-', '')
+          .replaceAll('(', '')
+          .replaceAll(')', '')
+          .replaceAll(' ', '')
+          .trim();
+
+      window.open(`tel:${phone}`);
+    }
   }
 }
 </script>
@@ -71,6 +85,10 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.header__phone {
+  cursor: pointer;
 }
 
 .header__logo {

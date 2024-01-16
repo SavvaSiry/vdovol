@@ -68,7 +68,9 @@
         <div class="column column_gap8">
           <div class="text text_medium">{{ selectedCard.weekDaysOpeningHours }}</div>
           <div class="text text_medium">{{ selectedCard.weekendOpeningHours }}</div>
-          <div class="text text_medium">{{ selectedCard.phoneNumber }}</div>
+          <div @click="callNumber(selectedCard.phoneNumber)"
+               class="text phone text_medium">{{ selectedCard.phoneNumber }}
+          </div>
         </div>
 
         <div class="button button_default"
@@ -78,7 +80,9 @@
         </div>
 
         <div class="row row_gap20">
-          <div class="text text_bold">{{ mainPhoneNumber }}</div>
+          <div @click="callNumber(mainPhoneNumber)"
+               class="text phone text_bold">{{ mainPhoneNumber }}
+          </div>
 
           <svg @click="openInNewTab(vkLink)" class="svg" width="24" height="25" viewBox="0 0 24 25" fill="none"
                xmlns="http://www.w3.org/2000/svg">
@@ -152,6 +156,16 @@ export default {
     },
     getResourcePath() {
       return import.meta.env.VITE_RESOURCE_API;
+    },
+    callNumber(number) {
+      let phone = number
+          .replaceAll('-', '')
+          .replaceAll('(', '')
+          .replaceAll(')', '')
+          .replaceAll(' ', '')
+          .trim();
+
+      window.open(`tel:${phone}`);
     }
   },
   watch: {

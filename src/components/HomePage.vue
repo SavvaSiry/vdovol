@@ -74,7 +74,7 @@
   <AppFooter
       @scroll-to="scrollTo"
       :vkLink="page.vkLink"
-      :phoneLink="page.phoneLink"
+      :phoneNumber="page.mainPhoneNumber"
   />
 </template>
 
