@@ -35,8 +35,11 @@
             v-if="restaurants !== null && restaurants !== undefined"
             :settings="{
                           location: {
-                            center: [parseFloat(mapCoordinateY), parseFloat(mapCoordinateX)],
-                            zoom: 10,
+                            center: [parseFloat(selectedCard.coordinateY), parseFloat(selectedCard.coordinateX)],
+                            zoom: 12,
+                            tilt: 0,
+                            azimuth: 0,
+                            duration: 1000,
                           },
                        }"
             width="100%"
@@ -44,11 +47,22 @@
         >
           <yandex-map-default-scheme-layer/>
           <yandex-map-default-features-layer/>
-          <template v-for="(rest, index) in restaurants" :key="index">
+
+<!--          <template v-for="(rest, index) in restaurants" :key="index">-->
+<!--            <yandex-map-default-marker-->
+<!--                :settings="{-->
+<!--                  coordinates: [parseFloat(rest.coordinateY), parseFloat(rest.coordinateX)],-->
+<!--                  title: `<strong>${rest.address}<strong>`,-->
+<!--                }"-->
+<!--                :position="'default'"-->
+<!--            />-->
+<!--          </template>-->
+
+          <template>
             <yandex-map-default-marker
                 :settings="{
-                  coordinates: [parseFloat(rest.coordinateY), parseFloat(rest.coordinateX)],
-                  title: `<strong>${rest.address}<strong>`,
+                  coordinates: [parseFloat(selectedCard.coordinateY), parseFloat(selectedCard.coordinateX)],
+                  title: `<strong>${selectedCard.address}<strong>`,
                 }"
                 :position="'default'"
             />
