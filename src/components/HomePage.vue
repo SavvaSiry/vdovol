@@ -127,8 +127,10 @@ export default {
     return {
       title: this.page.metaTitle,
       meta: [
+        { vmid: 'description', name: 'description', content: this.page.metaDescription },
+        { vmid: 'title', name: 'title', content: this.page.metaTitle },
         { vmid: 'og:description', name: 'og:description', content: this.page.metaDescription },
-        { vmid: 'og:title', name: 'og:title', content: this.page.metaDescription },
+        { vmid: 'og:title', name: 'og:title', content: this.page.metaTitle },
         { vmid: 'og:image', name: 'og:image', content: import.meta.env.VITE_RESOURCE_API + this.page.metaImage.path },
       ]
     }

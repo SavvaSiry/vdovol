@@ -11,7 +11,8 @@
         </div>
         <div
             @click="callNumber(this.phoneNumber)"
-            class="text phone header__phone text_bold">{{ phoneNumber }}</div>
+            class="text phone header__phone text_bold">{{ phoneNumber }}
+        </div>
       </div>
 
       <div v-if="!isWidth580()" class="text header__nav text_bold">
